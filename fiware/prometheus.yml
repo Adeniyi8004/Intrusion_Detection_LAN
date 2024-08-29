@@ -1,0 +1,12 @@
+# prometheus.yml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'iot-agent'
+    static_configs:
+      - targets: ['iot-agent:4061']  # Adjust the target to match the exposed port of the service
+
+  # Add additional scrape_configs for other services as needed
+

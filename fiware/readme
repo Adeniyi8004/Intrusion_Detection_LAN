@@ -1,0 +1,9 @@
+python3 send_cloud_orion.py
+
+sudo truncate -s 0 /var/log/snort/alert_json.txt
+/usr/local/etc/rules/
+'timestamp class msg priority src_addr src_port dst_addr dst_port proto'
+snort -c /usr/local/etc/snort/snort.lua
+
+sudo /usr/local/bin/snort -c /usr/local/etc/snort/snort.lua -s 65535 \
+-k none -l /var/log/snort -i enp0s3 -m 0x1b

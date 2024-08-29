@@ -1,0 +1,30 @@
+global:
+  scrape_interval: 15s # How frequently to scrape targets by default.
+  evaluation_interval: 15s # How frequently to evaluate rules.
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'iot-agent'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['iot-agent:4061']
+
+  - job_name: 'orion'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['orion:1026']
+
+  - job_name: 'snort-python'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['snort-python:80']
+
+  - job_name: 'mongodb'
+    static_configs:
+      - targets: ['mongodb:27017']
+
+# You can add more jobs if you have additional services that need to be monitored.
+
